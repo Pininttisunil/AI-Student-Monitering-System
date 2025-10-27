@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="regi.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Student Registration</h2>
+    <form id="studentForm">
+      <input type="text" name="first_name" placeholder="First Name" required>
+      <input type="text" name="last_name" placeholder="Last Name" required>
+      <input type="text" name="hall_ticket" placeholder="Hall Ticket" required>
+      <input type="text" name="batch_no" placeholder="Batch No" required>
+      <input type="text" name="father_name" placeholder="Father Name" required>
+      <input type="tel" name="mobile_no" placeholder="Mobile No" pattern="[0-9]{10}" required>
+      <input type="password" name="password" placeholder="Create Password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+      <button type="submit" class="btn student">Register</button>
+      <button type="button" class="btn back" onclick="location.href='register.html'">Back</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("studentForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const formData = {
+        first_name: this.first_name.value,
+        last_name: this.last_name.value,
+        hall_ticket: this.hall_ticket.value,
+        batch_no: this.batch_no.value,
+        father_name: this.father_name.value,
+        mobile_no: this.mobile_no.value,
+        password: this.password.value
+      };
+
+      const response = await fetch("http://localhost:5000/register-student", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message);
+        // ✅ Redirect to index.html
+        window.location.href = "index.html";
+      } else {
+        alert("Error: " + result.message);
+      }
+    });
+  </script>
+</body>
+</html>

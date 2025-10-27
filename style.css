@@ -1,0 +1,83 @@
+/* Background gradient */
+body {
+  background-image: url('https://constructor.tech/sites/default/files/2024-02/AI%20Classroom.webp');
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Card container */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 360px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Heading */
+.card h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  animation: slideDown 1s ease;
+}
+
+/* Login button */
+.login-btn {
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.login-btn:hover {
+  background: #5148d1;
+  transform: scale(1.05);
+}
+
+/* Role buttons container */
+.role-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Role buttons */
+.role-btn {
+  background: #e6f0f8;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.role-btn:hover {
+  background: #d0e6f2;
+  transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
